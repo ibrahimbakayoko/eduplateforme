@@ -1,0 +1,106 @@
+{% extends 'core/base.html' %}
+
+<!-- {% load static %}  Chargez le tag static ici -->
+
+{% block title %}Accueil - EduPlateforme{% endblock %}
+
+{% block content %}
+
+
+
+
+
+  <!-- Hero Section (Image bannière pleine largeur) -->
+  <div class="hero-section">
+    <img src="{% static 'images/banner-elearning.jpg' %}" alt="Bannière EduPlateforme" class="img-fluid">
+    <div class="hero-overlay">
+        <div class="container text-center text-white">
+            <h1>Bienvenue sur EduPlateforme</h1>
+            <p>Développez vos compétences avec nos cours et ressources pédagogiques.</p>
+            <a href="#features" class="btn btn-light btn-lg">Découvrir les fonctionnalités</a>
+        </div>
+    </div>
+</div>
+    <main class="container my-5">
+        
+   
+        <div class="row justify-content-center">
+            <div class="col-md-10"> <!-- Réduction de la largeur à 8 colonnes -->
+                <h2 class="text-center mb-4">Les points forts de notre plateforme</h2>
+
+                <div class="row">
+                    <!-- Caractéristique 1 -->
+                    <div class="col-md-4">
+                        <div class="card border-light shadow-lg p-0 mb-5 bg-white rounded">
+                            <img src="{% static 'images/flexibilite.jpg' %}" class="card-img-top" alt="Flexibilité">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">Flexibilité</h5>
+                                <p class="card-text text-center">Apprenez à votre rythme, avec un accès 24/7 aux ressources et aux cours.</p>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Caractéristique 2 -->
+                    <div class="col-md-4">
+                        <div class="card border-light shadow-lg p-0 mb-5 bg-white rounded">
+                            <img src="{% static 'images/accessibilite.jpg' %}" class="card-img-top" alt="Accessibilité">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">Accessibilité</h5>
+                                <p class="card-text text-center">Accédez à des cours depuis n'importe où, sur n'importe quel appareil.</p>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Caractéristique 3 -->
+                    <div class="col-md-4">
+                        <div class="card border-light shadow-lg p-0 mb-5 bg-white rounded">
+                            <img src="{% static 'images/deversite.jpg' %}" class="card-img-top" alt="Diversité des Cours">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">Diversité des Cours</h5>
+                                <p class="card-text text-center">Choisissez parmi une large gamme de cours couvrant divers domaines.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+                <!-- Section des cours (exemple) -->
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Cours 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Cours 1</h5>
+                                <p class="card-text">Description du cours 1.</p>
+                                <a href="#" class="btn btn-primary">Voir le cours</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Cours 2">
+                            <div class="card-body">
+                                <h5 class="card-title">Cours 2</h5>
+                                <p class="card-text">Description du cours 2.</p>
+                                <a href="#" class="btn btn-primary">Voir le cours</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Cours 3">
+                            <div class="card-body">
+                                <h5 class="card-title">Cours 3</h5>
+                                <p class="card-text">Description du cours 3.</p>
+                                <a href="#" class="btn btn-primary">Voir le cours</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
