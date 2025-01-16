@@ -4,7 +4,7 @@ services:
   web1:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: dockerfile
     networks:
       webnet:
         ipv4_address: 172.28.1.2  # IP statique pour web1
@@ -22,7 +22,7 @@ services:
   web2:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: dockerfile
     networks:
       webnet:
         ipv4_address: 172.28.1.3  # IP statique pour web2
@@ -40,7 +40,7 @@ services:
   web3:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: dockerfile
     networks:
       webnet:
         ipv4_address: 172.28.1.4  # IP statique pour web3
