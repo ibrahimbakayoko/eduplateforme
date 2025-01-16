@@ -27,11 +27,20 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#">Accueil</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Cours</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Connexion</a></li>
-                        <li class="nav-item"><a class="nav-link btn btn-light text-primary" href="#">Inscription</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'home' %}">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'courses' %}">Cours</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">Connexion</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-light text-primary" href="{% url 'signup' %}">Inscription</a>
+                        </li>
                     </ul>
+                    
                 </div>
             </div>
         </nav>
