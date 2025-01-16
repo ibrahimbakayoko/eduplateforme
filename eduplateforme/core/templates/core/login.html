@@ -3,52 +3,52 @@
 {% block title %}Connexion - EduPlateforme{% endblock %}
 
 {% block content %}
- 
     <main class="container my-5">
         <div class="row justify-content-center">
-            <div class="col-md-5"> <!-- Réduction de la largeur à 5 colonnes -->
-                <!-- Card Form -->
-                <div class="card shadow">
-                    <div class="card-header bg-primary text-white text-center">
-                        <h2 class="h5">Se connecter</h2>
-                    </div>
-                    <div class="card-body p-4">
-                        <form method="POST">
-                            {% csrf_token %}
-                            <!-- Champ Nom d'utilisateur -->
-                            <div class="mb-3">
-                                <label for="username" class="form-label">Nom d'utilisateur</label>
-                                <input type="text" name="username" id="username" class="form-control" value="{{ form.username.value }}">
-                                {% if form.username.errors %}
-                                    <div class="text-danger">
-                                        {% for error in form.username.errors %}
-                                            <p>{{ error }}</p>
-                                        {% endfor %}
-                                    </div>
-                                {% endif %}
-                            </div>
+            <div class="col-lg-5 col-md-7 col-sm-9">
+                <h2 class="text-center mb-4">Se connecter</h2>
+                <p class="text-center text-muted mb-5">
+                    Accédez à votre compte pour profiter de tous les services de la plateforme.
+                </p>
 
-                            <!-- Champ Mot de passe -->
-                            <div class="mb-3">
-                                <label for="password" class="form-label">Mot de passe</label>
-                                <input type="password" name="password" id="password" class="form-control">
-                                {% if form.password.errors %}
-                                    <div class="text-danger">
-                                        {% for error in form.password.errors %}
-                                            <p>{{ error }}</p>
-                                        {% endfor %}
-                                    </div>
-                                {% endif %}
-                            </div>
+                <form method="POST" class="needs-validation" novalidate>
+                    {% csrf_token %}
 
-                            <!-- Bouton Soumettre -->
-                            <button type="submit" class="btn btn-primary w-100">Se connecter</button>
-                        </form>
-                        <p class="mt-3 text-center">
-                            Vous n'avez pas de compte ? <a href="{% url 'signup' %}">Créez-en un</a>
-                        </p>
+                    <!-- Champ Nom d'utilisateur -->
+                    <div class="mb-4">
+                        <label for="username" class="form-label fw-bold">Nom d'utilisateur</label>
+                        <input type="text" name="username" id="username" class="form-control" value="{{ form.username.value }}" placeholder="Entrez votre nom d'utilisateur" required>
+                        {% if form.username.errors %}
+                            <div class="text-danger">
+                                {% for error in form.username.errors %}
+                                    <p>{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
                     </div>
-                </div>
+
+                    <!-- Champ Mot de passe -->
+                    <div class="mb-4">
+                        <label for="password" class="form-label fw-bold">Mot de passe</label>
+                        <input type="password" name="password" id="password" class="form-control" placeholder="Entrez votre mot de passe" required>
+                        {% if form.password.errors %}
+                            <div class="text-danger">
+                                {% for error in form.password.errors %}
+                                    <p>{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <!-- Bouton Soumettre -->
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg">Se connecter</button>
+                    </div>
+                </form>
+
+                <p class="mt-4 text-center">
+                    Vous n'avez pas de compte ? <a href="{% url 'signup' %}">Créez-en un</a>
+                </p>
             </div>
         </div>
     </main>
