@@ -94,43 +94,21 @@
             
                 <!-- la carte a travailler -->
                 <div class="row">
+                    {% for popular_categorie in popular_categories%}
                     <!-- Première carte -->
                     <div class="col-md-4">
                         <div class="card" >
                             <div class="card-img-container">
-                                <img class="card-img-top" src="{% static 'images/accessibilite.jpg' %}" alt="Card image cap">
+                                <img class="card-img-top" src="{{ popular_categorie.image.url }}" alt="Card image cap">
                             </div>
                             <div class="card-body">
-                                <p class="card-text"> Application Mobile</p>
+                                <p class="card-text">{{popular_categorie.name}}</p>
                             </div>
                         </div>
                     </div>
-                
-                    <!-- Deuxième carte -->
-                    <div class="col-md-4">
-                        <div class="card" >
-                            <div class="card-img-container">
-                                <img class="card-img-top" src="{% static 'images/accessibilite.jpg' %}" alt="Card image cap">
-                            </div>
-                            <div class="card-body">
-                                <p class="card-text">UI/UX Design</p>
-                            </div>
-                        </div>
-                    </div>
-                
-                    <!-- Troisième carte -->
-                    <div class="col-md-4">
-                        <div class="card" >
-                            <div class="card-img-container">
-                                <img class="card-img-top" src="{% static 'images/accessibilite.jpg' %}" alt="Card image cap">
-                            </div>
-                            <div class="card-body">
-                                <p class="card-text">Development</p>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
-                
+                <p></p>
                 <div class="text-center mb-6">
                     <span style="font-size: 1.25rem; font-weight: normal;">Top Cours</span>
                 </div>
@@ -144,7 +122,7 @@
                         <div class="card h-100">
                             <!-- Image de la card -->
                             <a href="{% url 'course_detail' last_course.id %}" class="card-img-top">
-                                <img decoding="async" src="https://wp.themepure.net/acadia/wp-content/uploads/2024/08/course-06.jpg.webp" 
+                                <img decoding="async" src="{{last_course.image.url}}" 
                                      alt="Adobe Illustrator for Graphic Design" 
                                      class="img-fluid rounded-top">
                             </a>

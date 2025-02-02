@@ -4,6 +4,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from .forms import CustomUserCreationForm
 from django.contrib import messages
 from .models import Courses
+from .models import Category
 #from .models import Article
 
 
@@ -11,8 +12,10 @@ from .models import Courses
 #Vue pour la home
 def home(request):
     last_courses= Courses.objects.order_by('created_at')[:3]
+    popular_categories = Category.objects.all()[:3]
     return render(request, 'core/home.html',{
         'last_courses':last_courses,
+        'popular_categories': popular_categories,
     })
 
 # Vue pour l'inscription
