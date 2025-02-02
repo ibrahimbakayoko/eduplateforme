@@ -2,6 +2,8 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from .models import User
 from .models import Courses
+from .models import Category
+#from .models import Article
 
 # Configuration de l'affichage du modèle utilisateur personnalisé dans l'interface d'administration
 @admin.register(User)
@@ -35,4 +37,7 @@ class UserAdmin(BaseUserAdmin):
     ordering = ('username',)
 
 admin.site.register(Courses)
+admin.site.register(Category)
+# ajout du model article
+#admin.site.register(Article)
 

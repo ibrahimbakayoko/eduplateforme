@@ -4,12 +4,16 @@ from django.contrib.auth.forms import AuthenticationForm
 from .forms import CustomUserCreationForm
 from django.contrib import messages
 from .models import Courses
+#from .models import Article
 
 
 
 #Vue pour la home
 def home(request):
-    return render(request, 'core/home.html')
+    last_courses= Courses.objects.order_by('created_at')[:3]
+    return render(request, 'core/home.html',{
+        'last_courses':last_courses,
+    })
 
 # Vue pour l'inscription
 # def signup(request):
@@ -69,3 +73,5 @@ def course_list(request):
 def course_detail(request, course_id):
     course = Courses.objects.get(id=course_id)
     return render(request, 'core/course_detail.html', {'course': course})
+
+

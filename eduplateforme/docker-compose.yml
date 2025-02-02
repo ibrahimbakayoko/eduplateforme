@@ -18,6 +18,8 @@ services:
       - DATABASE_PASSWORD=eduplateforme
       - DATABASE_HOST=db
       - DATABASE_PORT=3306
+    volumes:
+      - media_data:/app/media
 
   web2:
     build:
@@ -36,6 +38,9 @@ services:
       - DATABASE_PASSWORD=eduplateforme
       - DATABASE_HOST=db
       - DATABASE_PORT=3306
+    volumes:
+      - media_data:/app/media
+      
 
   web3:
     build:
@@ -54,6 +59,9 @@ services:
       - DATABASE_PASSWORD=eduplateforme
       - DATABASE_HOST=db
       - DATABASE_PORT=3306
+    volumes:
+      - media_data:/app/media
+    
 
   db:
     image: mariadb:latest
@@ -94,3 +102,4 @@ networks:
           
 volumes:
   db_data:
+  media_data:

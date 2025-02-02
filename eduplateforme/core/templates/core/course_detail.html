@@ -3,28 +3,75 @@
 {% block title %}{{ course.title }}{% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-    <h1>{{ course.title }}</h1>
-    
-    {% if course.image %}
-        <img src="{{ course.image.url }}" class="img-fluid" alt="{{ course.title }}">
-    {% endif %}
-    
-    <h3>Description</h3>
-    <p>{{ course.description }}</p>
 
-    <h3>Contenu</h3>
-    <p>{{ course.content }}</p>
-    
-    <h4>Enseignant</h4>
-    <p>
-        {% if course.instructor %}
-            {{ course.instructor.get_full_name|default:course.instructor.username }}
-        {% else %}
-            Enseignant non attribué
-        {% endif %}
-    </p>
-    
-    <a href="{% url 'courses' %}" class="btn btn-secondary">Retour à la liste des cours</a>
+<div class="row justify-content-center caracteristique ">
+    <img class="card-img-top" src="" alt="Card image cap">
 </div>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 bg-light">
+            {% if course.video %}
+            <div class="mb-4">
+                <h2 class="h4">Vidéo</h2>
+                <div class="video-container">
+                    <video class="w-100" controls style="height: 400px;">
+                        <source src="{{ course.video.url }}" type="video/mp4">
+                        Votre navigateur ne prend pas en charge la balise vidéo.
+                    </video>
+                </div>
+            </div>
+             {% endif %}
+            <!-- Titre du cours -->
+            <h1 class="display-4 mb-4">{{ course.title }}</h1>
+
+            <!-- Catégorie et prix -->
+            <div class="mb-4">
+                <p class="lead"><strong>Catégorie:</strong> {{ course.category.name }}</p>
+                <p class="lead"><strong>Prix:</strong> <span class="text-success">{{ course.price }} €</span></p>
+            </div>
+
+            <!-- Image du cours -->
+            {% if course.image %}
+                <div class="mb-4">
+                    <img src="{{ course.image.url }}" alt="Image du cours" class="img-fluid rounded shadow">
+                </div>
+            {% endif %}
+
+            <!-- Description du cours -->
+            <div class="mb-4">
+                <h2 class="h4">Description</h2>
+                <p>{{ course.description }}</p>
+            </div>
+
+            <!-- Contenu détaillé -->
+            <div class="mb-4">
+                <h2 class="h4">Contenu détaillé</h2>
+                <p>{{ course.content }}</p>
+            </div>
+
+            <!-- Vidéo du cours -->
+            <!-- {% if course.video %}
+                <div class="mb-4">
+                    <h2 class="h4">Vidéo</h2>
+                    <div class="video-container">
+                        <iframe src="{{ course.video.url }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="w-100" style="height: 400px;"></iframe>
+                    </div>
+                </div>
+            {% endif %} -->
+          
+
+
+            <!-- Informations sur l'enseignant -->
+            <div class="mb-4">
+                <p><strong>Enseignant:</strong> <a href="#">{{ course.instructor.username }}</a></p>
+                <p><strong>Créé le:</strong> {{ course.created_at|date:"d M Y" }}</p>
+            </div>
+
+            <!-- Bouton retour -->
+            <a href="{% url 'courses' %}" class="btn btn-primary mt-4">Retour à la liste des cours</a>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
+
