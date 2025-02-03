@@ -52,25 +52,15 @@ class User(AbstractUser):
 
 
 
-class Category(models.Model):
-    name = models.CharField(max_length=100, unique=True, verbose_name="Nom de la catégorie")
-    image = models.ImageField(upload_to='categories/', blank=True, null=True, verbose_name="Image de la catégorie")
-    description = models.TextField(null=True, blank=True)
-
-    def __str__(self):
-        return self.name
-
 class Courses(models.Model):
     title = models.CharField(max_length=200, verbose_name="Titre du cours")
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="Catégorie")
-    price = models.DecimalField(max_digits=10, decimal_places=2, default=0.00, verbose_name="Prix")
-    video = models.FileField(upload_to='videos/', blank=True, null=True, verbose_name="Vidéo du cours")
     image = models.ImageField(upload_to='courses/', blank=True, null=True, verbose_name="Image illustration")
     description = models.TextField(verbose_name="Description")
     content = models.TextField(verbose_name="Contenu détaillé")
     instructor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Enseignant")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Date de création")
-    # status = models.CharField(max_length=20, default='active', verbose_name="Statut")
+    status = models.CharField(max_length=20, default='active', verbose_name="Statut")  # Nouveau champ
+    
 
     def __str__(self):
         return self.title

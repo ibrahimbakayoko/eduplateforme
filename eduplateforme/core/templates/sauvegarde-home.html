@@ -1,0 +1,228 @@
+{% extends 'core/base.html' %}
+
+<!-- {% load static %}  Chargez le tag static ici -->
+
+{% block title %}Accueil - EduPlateforme{% endblock %}
+
+{% block content %}
+
+
+
+
+
+  <!-- Hero Section (Image bannière pleine largeur) -->
+<!-- Hero Section (Image bannière pleine largeur) -->
+<div class="hero-section position-relative">
+    <!-- Image de fond -->
+    <img src="{% static 'images/banner-elearning.jpg' %}" alt="Bannière EduPlateforme" class="img-fluid w-100">
+
+    <!-- Superposition (overlay) pour améliorer la lisibilité du texte -->
+    <div class="hero-overlay position-absolute top-0 left-0 w-100 h-100 d-flex justify-content-center align-items-center">
+        <div class="text-center text-white px-4 py-5">
+            <h1 class="display-4 font-weight-bold mb-3">Boostez vos compétences avec EduPlateforme</h1>
+            <p class="lead mb-4">Accédez à des cours de qualité, à tout moment et depuis n'importe où, pour progresser à votre rythme.</p>
+            <a href="#features" class="btn btn-primary btn-lg px-4 py-2">Découvrez nos fonctionnalités</a>
+        </div>
+    </div>
+  
+</div>
+
+<!-- construcion d'un nouvelle entete -->
+<div class=" slide">
+    <div class="row">
+        <div class="col-md-8 slide-content">
+            <div class=" text-white px-4 py-5">
+                <h1 class="display-4 font-weight-bold mb-3">Boostez vos compétences avec EduPlateforme</h1>
+                <p class="lead mb-4">Accédez à des cours de qualité,</br> à tout moment et depuis n'importe où, pour progresser à votre rythme.</p>
+                <a href="#features" class="btn btn-primary btn-lg px-4 py-2">Découvrez nos fonctionnalités</a>
+            </div>
+        </div>
+        <div class="col-md-4 slide-image"><img src="{% static 'images/hero-2-thumb-1.png.webp' %}" alt="Bannière EduPlateforme" class="img-fluid w-100"></div>
+    </div>
+</div>
+<!-- construcion d'un nouvelle entete -->
+
+    <main class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-10"> <!-- Réduction de la largeur à 8 colonnes -->
+                <div class="row  ">
+                  
+                    <div class="col-sm-6">
+                        <div class="card text-white mb-6" style="max-height: min-content;">
+                            <div class="card-header bg-primary">Étudiant</div>
+                            <div class="card-body" style="color: #333;">
+                                <h5 class="card-title">Commencez votre parcours</h5>
+                                <p class="card-text">
+                                    Explorez des cours interactifs pour enrichir vos compétences et obtenir des certifications reconnues. 
+                                    Apprenez à votre rythme et boostez votre carrière.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-6">
+                        <div class="card text-white mb-6" style="max-height: min-content;">
+                            <div class="card-header bg-warning">Entreprise</div>
+                            <div class="card-body" style="color: #333;">
+                                <h5 class="card-title">Formez vos équipes</h5>
+                                <p class="card-text">
+                                    Offrez des formations sur mesure pour améliorer les compétences de vos employés et renforcer leur performance. 
+                                    Boostez la compétitivité de votre entreprise avec des solutions flexibles.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+              
+                
+
+                <h2 class="text-center mb-4">Les points forts de notre plateforme</h2>
+
+                <div class="row">
+                    <!-- Caractéristique 1 -->
+                    <div class="col-md-4">
+                        <div class="card border-light shadow-lg p-0 mb-5 bg-white rounded">
+                            <img src="{% static 'images/flexibilite.jpg' %}" class="card-img-top" alt="Flexibilité">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">Flexibilité</h5>
+                                <p class="card-text text-center">Apprenez à votre rythme, avec un accès 24/7 aux ressources et aux cours.</p>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Caractéristique 2 -->
+                    <div class="col-md-4">
+                        <div class="card border-light shadow-lg p-0 mb-5 bg-white rounded">
+                            <img src="{% static 'images/accessibilite.jpg' %}" class="card-img-top" alt="Accessibilité">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">Accessibilité</h5>
+                                <p class="card-text text-center">Accédez à des cours depuis n'importe où, sur n'importe quel appareil.</p>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Caractéristique 3 -->
+                    <div class="col-md-4">
+                        <div class="card border-light shadow-lg p-0 mb-5 bg-white rounded">
+                            <img src="{% static 'images/deversite.jpg' %}" class="card-img-top" alt="Diversité des Cours">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">Diversité des Cours</h5>
+                                <p class="card-text text-center">Choisissez parmi une large gamme de cours couvrant divers domaines.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+                <!-- Section des cours (exemple) -->
+                <div class="row">
+                    {% for last_course in last_courses %}
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="{{ last_course.image.url}}" class="card-img-top" alt="Cours 1">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ last_course.title}}</h5>
+                                    <p class="card-text">{{ last_course.description}}</p>
+                                    <a href="{% url 'course_detail' last_course.id %}" class="btn btn-primary">Voir le cours</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <!-- 
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Cours 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Cours 1</h5>
+                                <p class="card-text">Description du cours 1.</p>
+                                <a href="#" class="btn btn-primary">Voir le cours</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Cours 2">
+                            <div class="card-body">
+                                <h5 class="card-title">Cours 2</h5>
+                                <p class="card-text">Description du cours 2.</p>
+                                <a href="#" class="btn btn-primary">Voir le cours</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Cours 3">
+                            <div class="card-body">
+                                <h5 class="card-title">Cours 3</h5>
+                                <p class="card-text">Description du cours 3.</p>
+                                <a href="#" class="btn btn-primary">Voir le cours</a>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+
+                <!-- Section Témoignages en Carousel -->
+            <h2 class="text-center mb-4">Ce que nos étudiants disent</h2>
+            
+            <!-- Carousel des Témoignages -->
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <!-- Témoignage 1 -->
+                    <div class="carousel-item active">
+                        <div class="d-flex justify-content-center">
+                            <div class="card border-light shadow-lg p-0 bg-white rounded" style="width: 100%;  height: 300px;">
+                                <div class="card-body text-center">
+                                    <p class="card-text">"EduPlateforme m'a permis de suivre des cours à mon propre rythme, ce qui m'a donné une grande flexibilité. Je recommande vivement !"</p>
+                                    <p><strong>John Doe</strong></p>
+                                    <p><em>Étudiant en Développement Web</em></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Témoignage 2 -->
+                    <div class="carousel-item">
+                        <div class="d-flex justify-content-center">
+                            <div class="card border-light shadow-lg p-0 bg-white rounded" style="width: 100%;  height: 300px;">
+                                <div class="card-body text-center">
+                                    <p class="card-text">"L'accessibilité des cours est incroyable. Peu importe où je me trouve, je peux apprendre et progresser !"</p>
+                                    <p><strong>Marie Dupont</strong></p>
+                                    <p><em>Étudiante en Data Science</em></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Témoignage 3 -->
+                    <div class="carousel-item">
+                        <div class="d-flex justify-content-center">
+                            <div class="card border-light shadow-lg p-0 bg-white rounded" style="width: 100%; height: 300px;">
+                                <div class="card-body text-center">
+                                    <p class="card-text">"La diversité des cours proposés m'a permis d'élargir mes horizons. Une plateforme idéale pour les professionnels et les débutants !"</p>
+                                    <p><strong>Luc Martin</strong></p>
+                                    <p><em>Professionnel en Marketing Digital</em></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Contrôles du Carousel -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Précédent</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Suivant</span>
+                </button>
+            </div>
+
+            </div>
+        </div>
+    </main>
+{% endblock %}

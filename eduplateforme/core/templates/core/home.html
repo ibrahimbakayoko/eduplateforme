@@ -7,100 +7,397 @@
 {% block content %}
 
 
-
-
-
-  <!-- Hero Section (Image bannière pleine largeur) -->
-    <div class="hero-section">
-        <img src="{% static 'images/banner-elearning.jpg' %}" alt="Bannière EduPlateforme" class="img-fluid">
-        <div class="hero-overlay">
-            <div class="container text-center text-white">
-                <h1>Bienvenue sur EduPlateforme</h1>
-                <p>Développez vos compétences avec nos cours et ressources pédagogiques.</p>
-                <a href="#features" class="btn btn-light btn-lg">Découvrir les fonctionnalités</a>
+<!-- construcion d'un nouvelle entete -->
+<div class="slide bg-light py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-8 slide-content text-center text-md-start">
+                <div class="px-4 py-5">
+                    <h1 class="display-4 fw-bold mb-3">
+                        Boostez vos compétences avec 
+                        <span class="edu-text-secondary">EduPlateforme</span>
+                    </h1>
+                    <p class="lead mb-4">
+                        Accédez à des cours de qualité,<br>
+                        à tout moment et depuis n'importe où,<br>
+                        pour progresser à votre rythme.
+                    </p>
+                    <a href="#features" class="btn btn-primary btn-lg px-4 py-2">
+                        Découvrez nos fonctionnalités
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 slide-image">
+                <img src="{% static 'images/hero-2-thumb-1.png.webp' %}" 
+                     alt="Bannière EduPlateforme" 
+                     class="img-fluid w-100 ">
             </div>
         </div>
     </div>
-    
+</div>
+
+
+<div class="row justify-content-center caracteristique">
+    <div class="col-md-10">
+        <div class="row">
+            <!-- Block 1: Flexible Classes -->
+            <div class="col-md-3 text-center">
+                <div class="block">
+                    <h5 class="block-title">Flexible</h5>
+                    <p class="block-text">You pick schedule.</p>
+                </div>
+            </div>
+
+            <!-- Block 2: Offline Mode -->
+            <div class="col-md-3 text-center">
+                <div class="block">
+                    <h5 class="block-title">Mode Offline</h5>
+                    <p class="block-text">Telecharger.</p>
+                </div>
+            </div>
+
+            <!-- Block 3: 10k Online Courses -->
+            <div class="col-md-3 text-center">
+                <div class="block">
+                    <h5 class="block-title">10k online </h5>
+                    <p class="block-text">Explore les sujets.</p>
+                </div>
+            </div>
+
+            <!-- Block 4: Educator Help -->
+            <div class="col-md-3 text-center">
+                <div class="block">
+                    <h5 class="block-title">Aide</h5>
+                    <p class="block-text">24H/24.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- construcion d'un nouvelle entete -->
+
     <main class="container my-5">
-        
-   
         <div class="row justify-content-center">
             <div class="col-md-10"> <!-- Réduction de la largeur à 8 colonnes -->
-                <h2 class="text-center mb-4">Les points forts de notre plateforme</h2>
-
-                <div class="row">
-                    <!-- Caractéristique 1 -->
-                    <div class="col-md-4">
-                        <div class="card border-light shadow-lg p-0 mb-5 bg-white rounded">
-                            <img src="{% static 'images/flexibilite.jpg' %}" class="card-img-top" alt="Flexibilité">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">Flexibilité</h5>
-                                <p class="card-text text-center">Apprenez à votre rythme, avec un accès 24/7 aux ressources et aux cours.</p>
-                            </div>
-                        </div>
-                    </div>
+               
+              
                 
-                    <!-- Caractéristique 2 -->
-                    <div class="col-md-4">
-                        <div class="card border-light shadow-lg p-0 mb-5 bg-white rounded">
-                            <img src="{% static 'images/accessibilite.jpg' %}" class="card-img-top" alt="Accessibilité">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">Accessibilité</h5>
-                                <p class="card-text text-center">Accédez à des cours depuis n'importe où, sur n'importe quel appareil.</p>
-                            </div>
-                        </div>
-                    </div>
-                
-                    <!-- Caractéristique 3 -->
-                    <div class="col-md-4">
-                        <div class="card border-light shadow-lg p-0 mb-5 bg-white rounded">
-                            <img src="{% static 'images/deversite.jpg' %}" class="card-img-top" alt="Diversité des Cours">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">Diversité des Cours</h5>
-                                <p class="card-text text-center">Choisissez parmi une large gamme de cours couvrant divers domaines.</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="text-center mb-6">
+                    <span style="font-size: 1.25rem; font-weight: normal;">Top Categories</span>
                 </div>
+                <h2 class="text-center mb-4"><span class="edu-text-secondary">Les Categories les plus</span></h2>
+                  
                 
+            
+                <!-- la carte a travailler -->
+                <div class="row">
+                    {% for popular_categorie in popular_categories%}
+                    <!-- Première carte -->
+                    <div class="col-md-4">
+                        <div class="card" >
+                            <div class="card-img-container">
+                                <img class="card-img-top" src="{{ popular_categorie.image.url }}" alt="Card image cap">
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">{{popular_categorie.name}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <p></p>
+                <div class="text-center mb-6">
+                    <span style="font-size: 1.25rem; font-weight: normal;">Top Cours</span>
+                </div>
+                <h2 class="text-center mb-4"><span class="edu-text-secondary">Cours les plus demandé </span></h2>
                 
                 
                 <!-- Section des cours (exemple) -->
                 <div class="row">
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Cours 1">
+                    {% for last_course in last_courses %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <!-- Image de la card -->
+                            <a href="{% url 'course_detail' last_course.id %}" class="card-img-top">
+                                <img decoding="async" src="{{last_course.image.url}}" 
+                                     alt="Adobe Illustrator for Graphic Design" 
+                                     class="img-fluid rounded-top">
+                            </a>
+                    
+                            <!-- Contenu de la card -->
                             <div class="card-body">
-                                <h5 class="card-title">Cours 1</h5>
-                                <p class="card-text">Description du cours 1.</p>
-                                <a href="#" class="btn btn-primary">Voir le cours</a>
+                                <!-- Catégorie -->
+                                <div class="mb-2">
+                                    <a href="https://wp.themepure.net/acadia/course-category/video-edition/?tutor-course-filter-category=58" 
+                                       class="badge text-bg-info" style="text-decoration: none;">
+                                       {{ last_course.category.name }} 
+                                    </a>
+                                </div>
+                    
+                                <!-- Titre du cours -->
+                                <h5 class="card-title">
+                                    <a href="https://wp.themepure.net/acadia/courses/adobe-illustrator-for-graphic-design/" 
+                                       class="text-decoration-none text-dark">
+                                       {{ last_course.title }}
+                                    </a>
+                                </h5>
+                    
+                                <!-- Meta informations -->
+                                <div class="d-flex align-items-center mb-3">
+                                    <svg width="15" height="14" class="me-2" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M13.9228 10.0426V2.29411C13.9228 1.51825 13.2949 0.953997 12.5252 1.01445H12.4847C11.1276 1.12529 9.07163 1.82055 7.91706 2.53596L7.80567 2.6065C7.62337 2.71733 7.30935 2.71733 7.11692 2.6065L6.9549 2.50573C5.81046 1.79033 3.75452 1.1152 2.3974 1.00437C1.62768 0.943911 0.999756 1.51827 0.999756 2.28405V10.0426C0.999756 10.6573 1.50613 11.2417 2.12393 11.3122L2.30622 11.3425C3.70386 11.5238 5.87126 12.2392 7.10685 12.9143L7.1372 12.9244C7.30937 13.0252 7.59293 13.0252 7.75498 12.9244C8.99057 12.2393 11.1681 11.5339 12.5758 11.3425L12.7885 11.3122C13.4164 11.2417 13.9228 10.6674 13.9228 10.0426Z" 
+                                              stroke="#94928E" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M7.46118 2.81787V12.4506" stroke="#94928E" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                    12 Leçons
+                                </div>
+                    
+                                <!-- Nom de l'instructeur -->
+                                <div class="d-flex align-items-center mb-3">
+                                    <img decoding="async" src="https://wp.themepure.net/acadia/wp-content/uploads/2024/07/leadership-thumb-7.jpg.webp" 
+                                         alt="Salim Rana" class="rounded-circle me-2" style="width: 40px; height: 40px;">
+                                    <span>{{ last_course.instructor.username }}</span>
+                                </div>
+                    
+                                <!-- Prix et Évaluation -->
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <!-- Évaluation -->
+                                    <div class="d-flex align-items-center">
+                                        <p class="mb-0 me-1">0<span>/0</span></p>
+                                        <div class="d-flex">
+                                            <span class="tutor-icon-star-line" data-rating-value="1"></span>
+                                            <span class="tutor-icon-star-line" data-rating-value="2"></span>
+                                            <span class="tutor-icon-star-line" data-rating-value="3"></span>
+                                            <span class="tutor-icon-star-line" data-rating-value="4"></span>
+                                            <span class="tutor-icon-star-line" data-rating-value="5"></span>
+                                        </div>
+                                    </div>
+                    
+                                    <!-- Prix -->
+                                    <div class="price text-danger">
+                                        <strong>{{ last_course.price }} €</strong>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
 
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Cours 2">
-                            <div class="card-body">
-                                <h5 class="card-title">Cours 2</h5>
-                                <p class="card-text">Description du cours 2.</p>
-                                <a href="#" class="btn btn-primary">Voir le cours</a>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Cours 3">
-                            <div class="card-body">
-                                <h5 class="card-title">Cours 3</h5>
-                                <p class="card-text">Description du cours 3.</p>
-                                <a href="#" class="btn btn-primary">Voir le cours</a>
-                            </div>
-                        </div>
-                    </div>
+
+                    
+                    
+                
+
+                 
                 </div>
+                <!-- carousel Enseignant -->
+                 <div class="row">
+
+                 
+                    <section class="team-section py-5">
+                        <div class="container">
+                        <div class="row align-items-center">
+                            <!-- Section Title -->
+                            <div class="col-md-4">
+                            <h5 class="subtitle text-uppercase text-muted">Formateurs</h5>
+                            <h2 class="title">
+                                Des cours <br />
+                                Des formateurs<br />
+                                <span>Pro</span>
+                            </h2>
+                            </div>
+                    
+                            <!-- Carousel with Cards -->
+                            <div class="col-md-8">
+                            <div id="teamCarousel" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                <!-- Slide 1 -->
+                                <div class="carousel-item active">
+                                    <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="card text-center shadow-sm">
+                                        <img
+                                            src="https://wp.themepure.net/acadia/wp-content/uploads/2024/07/leadership-thumb-7.jpg.webp"
+                                            class="card-img-top rounded-circle mx-auto mt-3"
+                                            alt="Instructor 1"
+                                            style="width: 120px; height: 120px; object-fit: cover;"
+                                        />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Instructor Name 1</h5>
+                                            <p class="card-text text-muted">Job Title or Expertise</p>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card text-center shadow-sm">
+                                        <img
+                                            src="https://wp.themepure.net/acadia/wp-content/uploads/2024/07/leadership-thumb-7.jpg.webp"
+                                            class="card-img-top rounded-circle mx-auto mt-3"
+                                            alt="Instructor 2"
+                                            style="width: 120px; height: 120px; object-fit: cover;"
+                                        />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Instructor Name 2</h5>
+                                            <p class="card-text text-muted">Job Title or Expertise</p>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card text-center shadow-sm">
+                                        <img
+                                            src="https://wp.themepure.net/acadia/wp-content/uploads/2024/07/leadership-thumb-7.jpg.webp"
+                                            class="card-img-top rounded-circle mx-auto mt-3"
+                                            alt="Instructor 3"
+                                            style="width: 120px; height: 120px; object-fit: cover;"
+                                        />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Instructor Name 3</h5>
+                                            <p class="card-text text-muted">Job Title or Expertise</p>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                    
+                                <!-- Slide 2 -->
+                                <div class="carousel-item">
+                                    <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="card text-center shadow-sm">
+                                        <img
+                                            src="https://wp.themepure.net/acadia/wp-content/uploads/2024/07/leadership-thumb-7.jpg.webp"
+                                            class="card-img-top rounded-circle mx-auto mt-3"
+                                            alt="Instructor 4"
+                                            style="width: 120px; height: 120px; object-fit: cover;"
+                                        />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Instructor Name 4</h5>
+                                            <p class="card-text text-muted">Job Title or Expertise</p>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card text-center shadow-sm">
+                                        <img
+                                            src="phttps://wp.themepure.net/acadia/wp-content/uploads/2024/07/leadership-thumb-7.jpg.webp"
+                                            class="card-img-top rounded-circle mx-auto mt-3"
+                                            alt="Instructor 5"
+                                            style="width: 120px; height: 120px; object-fit: cover;"
+                                        />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Instructor Name 5</h5>
+                                            <p class="card-text text-muted">Job Title or Expertise</p>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card text-center shadow-sm">
+                                        <img
+                                            src="https://wp.themepure.net/acadia/wp-content/uploads/2024/07/leadership-thumb-7.jpg.webp"
+                                            class="card-img-top rounded-circle mx-auto mt-3"
+                                            alt="Instructor 6"
+                                            style="width: 120px; height: 120px; object-fit: cover;"
+                                        />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Instructor Name 6</h5>
+                                            <p class="card-text text-muted">Job Title or Expertise</p>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                    
+                                <!-- Carousel Controls -->
+                                <button
+                                class="carousel-control-prev"
+                                type="button"
+                                data-bs-target="#teamCarousel"
+                                data-bs-slide="prev"
+                                >
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button
+                                class="carousel-control-next"
+                                type="button"
+                                data-bs-target="#teamCarousel"
+                                data-bs-slide="next"
+                                >
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </section>
+
+                </div>
+                  
+                  
+                <!-- fin carousel Enseignant -->
+
+                <!-- Section Témoignages en Carousel -->
+                <h2 class="text-center mb-4">Ce que nos étudiants disent</h2>
+                
+                <!-- Carousel des Témoignages -->
+                <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <!-- Témoignage 1 -->
+                        <div class="carousel-item active">
+                            <div class="d-flex justify-content-center">
+                                <div class="card border-light shadow-lg p-0 bg-white rounded" style="width: 100%;  height: 300px;">
+                                    <div class="card-body text-center">
+                                        <p class="card-text">"EduPlateforme m'a permis de suivre des cours à mon propre rythme, ce qui m'a donné une grande flexibilité. Je recommande vivement !"</p>
+                                        <p><strong>John Doe</strong></p>
+                                        <p><em>Étudiant en Développement Web</em></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Témoignage 2 -->
+                        <div class="carousel-item">
+                            <div class="d-flex justify-content-center">
+                                <div class="card border-light shadow-lg p-0 bg-white rounded" style="width: 100%;  height: 300px;">
+                                    <div class="card-body text-center">
+                                        <p class="card-text">"L'accessibilité des cours est incroyable. Peu importe où je me trouve, je peux apprendre et progresser !"</p>
+                                        <p><strong>Marie Dupont</strong></p>
+                                        <p><em>Étudiante en Data Science</em></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Témoignage 3 -->
+                        <div class="carousel-item">
+                            <div class="d-flex justify-content-center">
+                                <div class="card border-light shadow-lg p-0 bg-white rounded" style="width: 100%; height: 300px;">
+                                    <div class="card-body text-center">
+                                        <p class="card-text">"La diversité des cours proposés m'a permis d'élargir mes horizons. Une plateforme idéale pour les professionnels et les débutants !"</p>
+                                        <p><strong>Luc Martin</strong></p>
+                                        <p><em>Professionnel en Marketing Digital</em></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Contrôles du Carousel -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Précédent</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Suivant</span>
+                    </button>
+                </div>
+
             </div>
         </div>
     </main>

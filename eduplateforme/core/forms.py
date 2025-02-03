@@ -1,5 +1,6 @@
 from django import forms
 from .models import User
+#from .models import temoignage
 from django.contrib.auth.forms import UserCreationForm
 import datetime
 
@@ -97,3 +98,6 @@ class CustomUserCreationForm(UserCreationForm):
         }),
         required=True,
     )
+
+
+
